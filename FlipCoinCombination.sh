@@ -17,6 +17,14 @@ FlipCoin=$(( RANDOM%2 ))
 		((count2++))
 	
 	fi
+	if [[ $count1 == 21 || $count2 == 21 ]]
+	then
+		break
+	fi	
 done
-echo "Head has won $count1 times"
-echo "Tail has won $count2 times"
+if [ $count1 == 21 ]
+then
+	echo "Head has won over tail with diffrence of: " $(($count1-$count2))
+else
+   echo "Tail has won over head with diffrence of: " $(($count2-$count1))
+fi
